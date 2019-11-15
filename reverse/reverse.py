@@ -14,6 +14,8 @@ class Node:
   def set_next(self, new_next):
     # set this node's next_node reference to the passed in node
     self.next_node = new_next
+  def __repr__(self):
+    return f"{self.value}"
 
 class LinkedList:
   def __init__(self):
@@ -44,4 +46,42 @@ class LinkedList:
 
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    # if the list only has none values
+    # if self.head == None:
+    #   return None
+    # # for n in list ???
+
+
+    # prev_node = None
+    # curr_node = self.head # 1
+    # nn = self.head.next_node # 2
+
+    # while curr_node.next_node is not None: 
+    #   curr_node.next_node = prev_node # 2 -> none
+    #   prev_node = curr_node # none -> 1
+    #   curr_node = nn # 1 -> 2
+    #   nn = curr_node.next_node # 2 -> none
+    # curr_node.next_node = prev_node # none -> 1
+    # return curr_node 
+
+    prev_node = None
+    curr_node = self.head
+    while curr_node is not None: 
+      nn = curr_node.next_node
+      curr_node.next_node = prev_node
+      prev_node = curr_node
+      curr_node = nn
+    self.head = prev_node
+
+
+
+
+
+
+test = LinkedList()
+test.add_to_head(1) # 1
+test.add_to_head(2) # 1, 2
+test.add_to_head(3) # 1, 2, 3
+test.add_to_head(4) # 1, 2, 3, 4
+test.add_to_head(5) # 1, 2, 3, 4, 5
+print(f"test.reverse_list(): {test.reverse_list()}")
