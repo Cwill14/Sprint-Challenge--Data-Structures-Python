@@ -57,3 +57,5 @@ print (f"runtime: {end_time - start_time} seconds")
 # and then I have a for loop that loops over the first list(O(n)),
 # but then the contains is O(log n) because of it's binary search
 # at least it runs in well under a second
+
+# actually, because the the O(log n) is inside of O(n) loop, that means my first solution is O(n log n)
