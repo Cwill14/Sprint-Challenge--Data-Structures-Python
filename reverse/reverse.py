@@ -47,22 +47,35 @@ class LinkedList:
   def reverse_list(self):
     # TO BE COMPLETED
     # if the list only has none values
-    if self.head == None:
-      return None
-    # for n in list ???
+    # if self.head == None:
+    #   return None
+    # # for n in list ???
+
+
     # prev_node = None
     # curr_node = self.head # 1
-    # r_next_node = self.head.next_node # 2
+    # nn = self.head.next_node # 2
 
     # while curr_node.next_node is not None: 
     #   curr_node.next_node = prev_node # 2 -> none
     #   prev_node = curr_node # none -> 1
-    #   curr_node = r_next_node # 1 -> 2
-    #   r_next_node = curr_node.next_node # 2 -> none
+    #   curr_node = nn # 1 -> 2
+    #   nn = curr_node.next_node # 2 -> none
     # curr_node.next_node = prev_node # none -> 1
     # return curr_node 
-    # return self
-    
+
+    prev_node = None
+    curr_node = self.head
+    while curr_node is not None: 
+      nn = curr_node.next_node
+      curr_node.next_node = prev_node
+      prev_node = curr_node
+      curr_node = nn
+    self.head = prev_node
+
+
+
+
 
 
 test = LinkedList()
